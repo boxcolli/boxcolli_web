@@ -9,11 +9,11 @@ class HomePage extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Container(
-              height: 300,
-              width: 300,
+              height: 200,
+              width: 200,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 shape: BoxShape.circle,
               ),
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             const Text(
               '\uD83C\uDFC1',
               style: TextStyle(
-                fontSize: 24.0,
+                fontSize: 100.0,
               ),
             ),
           ],

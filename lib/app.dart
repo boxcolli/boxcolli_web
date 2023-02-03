@@ -29,25 +29,30 @@ class AppViewState extends State<AppView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Row(
         children: <Widget>[
           NavigationRail(
             selectedIndex: _selectedIndex,
             groupAlignment: -1.0,
-            leading: Icon(Icons.horizontal_rule, color: Theme.of(context).colorScheme.primary),
+            leading: Icon(Icons.horizontal_rule,
+                color: Theme.of(context).colorScheme.primary),
             destinations: [
               NavigationRailDestination(
-                icon: Icon(Icons.circle_outlined, color: Theme.of(context).colorScheme.primary),
+                icon: Icon(Icons.circle_outlined,
+                    color: Theme.of(context).colorScheme.primary),
                 selectedIcon: Icon(Icons.circle, color: Colors.red),
                 label: Text('Home'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.circle_outlined, color: Theme.of(context).colorScheme.primary),
+                icon: Icon(Icons.circle_outlined,
+                    color: Theme.of(context).colorScheme.primary),
                 selectedIcon: Icon(Icons.circle, color: Colors.amber),
                 label: Text('Bio'),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.circle_outlined, color: Theme.of(context).colorScheme.primary),
+                icon: Icon(Icons.circle_outlined,
+                    color: Theme.of(context).colorScheme.primary),
                 selectedIcon: Icon(Icons.circle, color: Colors.green),
                 label: Text('Project'),
               ),
@@ -58,6 +63,10 @@ class AppViewState extends State<AppView> {
             }),
             labelType: NavigationRailLabelType.selected,
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+          ),
+          VerticalDivider(
+            color: Theme.of(context).colorScheme.primary,
+            thickness: 1,
           ),
           IndexedStack(
             index: _selectedIndex,
