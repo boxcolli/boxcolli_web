@@ -71,7 +71,7 @@ class AppViewState extends State<AppView> {
           IndexedStack(
             index: _selectedIndex,
             children: [HomePage(), BioPage(), ProjectPage()],
-            alignment: Alignment.topCenter,
+            alignment: Alignment.topLeft,
           )
         ],
       ),

@@ -1,4 +1,6 @@
+import 'package:boxcolli_web/markdown/home_md.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -18,16 +20,23 @@ class HomePage extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
             ),
-            const Text(
+            Text(
               '\uD83C\uDFC1',
               style: TextStyle(
                 fontSize: 100.0,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ],
-        ),        
+        ),
+        Text(
+          'Boxcolli Demo Website',
+          style: TextStyle(
+            fontSize: 30.0,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
       ],
     );
   }
-
 }
