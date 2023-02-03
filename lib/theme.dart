@@ -4,10 +4,12 @@ class FlutterTheme {
   static ThemeData get dark {
     return ThemeData(
       appBarTheme: const AppBarTheme(
-        color: Colors.black,
+        backgroundColor: Colors.black,
       ),
-      colorScheme: ColorScheme.fromSwatch(
-        accentColor: Colors.blueGrey,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        primary: Colors.grey,
+        secondary: Colors.cyan,
+        background: Colors.grey,
       ),
     );
   }

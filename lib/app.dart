@@ -1,3 +1,6 @@
+import 'package:boxcolli_web/pages/bio_page.dart';
+import 'package:boxcolli_web/pages/home_page.dart';
+import 'package:boxcolli_web/pages/project_page.dart';
 import 'package:boxcolli_web/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -26,41 +29,43 @@ class AppViewState extends State<AppView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Row(
-      children: <Widget>[
-        NavigationRail(
-          selectedIndex: _selectedIndex,
-          groupAlignment: -1.0,
-          destinations: const [
-            NavigationRailDestination(
-              icon: Icon(
-                Icons.circle_outlined,
+      body: Row(
+        children: <Widget>[
+          NavigationRail(
+            selectedIndex: _selectedIndex,
+            groupAlignment: -1.0,
+            leading: Icon(Icons.horizontal_rule, color: Theme.of(context).colorScheme.primary),
+            destinations: [
+              NavigationRailDestination(
+                icon: Icon(Icons.circle_outlined, color: Theme.of(context).colorScheme.primary),
+                selectedIcon: Icon(Icons.circle, color: Colors.red),
+                label: Text('Home'),
               ),
-              selectedIcon: Icon(Icons.circle),
-              label: Text('Home'),
-            ),
-            NavigationRailDestination(
-              icon: Icon(Icons.circle_outlined),
-              selectedIcon: Icon(Icons.circle),
-              label: Text('Bio'),
-            ),
-            NavigationRailDestination(
-              icon: Icon(Icons.circle_outlined),
-              selectedIcon: Icon(Icons.circle),
-              label: Text('Project'),
-            ),
-          ],
-          //onDestinationSelected: (int index) => context.read<HomeCubit>().setTab(HomeTab.values[index]),
-          onDestinationSelected: (int index) => setState(() {
-            _selectedIndex = index;
-          }),
-          labelType: NavigationRailLabelType.selected,
-        ),
-        IndexedStack(
-          index: _selectedIndex,
-          children: [],
-        )
-      ],
-    ));
+              NavigationRailDestination(
+                icon: Icon(Icons.circle_outlined, color: Theme.of(context).colorScheme.primary),
+                selectedIcon: Icon(Icons.circle, color: Colors.amber),
+                label: Text('Bio'),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.circle_outlined, color: Theme.of(context).colorScheme.primary),
+                selectedIcon: Icon(Icons.circle, color: Colors.green),
+                label: Text('Project'),
+              ),
+            ],
+            //onDestinationSelected: (int index) => context.read<HomeCubit>().setTab(HomeTab.values[index]),
+            onDestinationSelected: (int index) => setState(() {
+              _selectedIndex = index;
+            }),
+            labelType: NavigationRailLabelType.selected,
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+          ),
+          IndexedStack(
+            index: _selectedIndex,
+            children: [HomePage(), BioPage(), ProjectPage()],
+            alignment: Alignment.topCenter,
+          )
+        ],
+      ),
+    );
   }
 }
