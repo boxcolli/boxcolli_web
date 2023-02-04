@@ -67,6 +67,7 @@ class AppViewState extends State<AppView> {
           VerticalDivider(
             color: Theme.of(context).colorScheme.primary,
             thickness: 1,
+            width: 5,
           ),
           IndexedStack(
             index: _selectedIndex,
